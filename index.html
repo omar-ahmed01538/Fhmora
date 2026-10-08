@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فهمورا | افهمها مش احفظها</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Baloo+2:wght@600;700;800&display=swap');
+:root{--bg:#f6f5fb;--card:#fff;--ink:#25243a;--muted:#817f93;--primary:#6957d8;--primary2:#8d7cf0;--soft:#eeeafd;--line:#ebe8f4;--green:#43b982;--shadow:0 18px 50px rgba(57,45,120,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Cairo,sans-serif;color:var(--ink);background:radial-gradient(circle at 85% 8%,#eeeaff 0,transparent 28%),radial-gradient(circle at 5% 35%,#f4eefa 0,transparent 25%),var(--bg)}
+header{height:76px;padding:0 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.logo{font-family:"Baloo 2";font-size:32px;font-weight:800;letter-spacing:-1px;color:var(--primary)}.logo span{color:#f18bb5}
+nav{display:flex;gap:5px}nav button{border:0;background:transparent;padding:10px 14px;border-radius:12px;font-family:inherit;font-weight:700;color:var(--muted);cursor:pointer}nav button.active,nav button:hover{background:var(--soft);color:var(--primary)}
+main{max-width:1180px;margin:auto;padding:38px 20px 70px}.hero{display:grid;grid-template-columns:1.45fr .75fr;gap:22px}
+.card{background:rgba(255,255,255,.94);border:1px solid rgba(235,232,244,.9);border-radius:28px;padding:28px;box-shadow:var(--shadow)}
+.hero-main{position:relative;overflow:hidden;padding:42px}.hero-main:after{content:"✦";position:absolute;font-size:150px;color:#eeeaff;left:-15px;bottom:-55px;font-family:serif;z-index:0}.hero-content{position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:7px;background:var(--soft);color:var(--primary);padding:8px 13px;border-radius:999px;font-size:13px;font-weight:800}
+.hero h1{font-size:46px;line-height:1.25;margin:18px 0 10px;letter-spacing:-1px}.hero h1 b{color:var(--primary)}.hero p{color:var(--muted);font-size:17px;line-height:2;max-width:650px;margin:0 0 22px}
+.btn{border:0;border-radius:15px;padding:13px 20px;font-family:inherit;font-weight:800;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;box-shadow:0 10px 24px #6957d833}.secondary{background:var(--soft);color:var(--primary)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}.stat{padding:15px;border:1px solid var(--line);border-radius:17px;background:#fcfbff;text-align:center}.stat strong{font-size:24px;display:block;font-family:"Baloo 2"}.stat small{color:var(--muted)}
+.streak{background:linear-gradient(145deg,#6957d8,#9584ee);color:#fff;border:0;position:relative;overflow:hidden}.streak:before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;background:#ffffff18;left:-80px;top:-70px}.flame{font-size:52px}.streak .muted{color:#ebe7ff}.streak-num{font-size:48px;font-weight:800;font-family:"Baloo 2";margin:3px 0 5px}.days{display:flex;justify-content:space-between;margin-top:24px}.day{text-align:center;color:#d8d1ff;font-size:12px}.dot{width:31px;height:31px;border-radius:50%;margin:6px auto 0;background:#ffffff22}.done .dot{background:#ffd166;color:#695000;display:flex;align-items:center;justify-content:center;font-weight:800}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}.section-title h2{margin:0;font-size:21px}.mode{color:var(--primary);font-weight:800;font-size:13px}
+.time{font-size:82px;font-weight:800;letter-spacing:1px;margin:5px 0;font-family:"Baloo 2";color:#302d49}.timer{text-align:center}.timer-settings{display:flex;gap:10px;justify-content:center;margin:18px 0;flex-wrap:wrap}.timer-settings label{background:#faf9fd;border:1px solid var(--line);padding:7px 10px;border-radius:12px;color:var(--muted);font-size:12px}.timer-settings input{width:55px;padding:5px;border:0;background:transparent;text-align:center;font-family:inherit;font-weight:800;color:var(--ink)}.timer-controls{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}.progress{height:8px;background:#eeeaf7;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),#b1a4fa);width:0;transition:.4s}
+.subjects{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.subject{padding:16px;border:1px solid var(--line);border-radius:18px;cursor:pointer;transition:.2s;background:#fff}.subject:hover{transform:translateY(-3px);border-color:#d6d0f4;box-shadow:0 10px 25px #6957d815}.emoji{font-size:27px}.subject h3{margin:3px 0;font-size:15px}.subject p{margin:0;color:var(--muted);font-size:12px}
+#explainer,#aiSection{margin-top:22px}.search,textarea{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:15px;font-family:inherit;background:#fcfbff;outline:none}.search:focus,textarea:focus{border-color:#b9b0ee;box-shadow:0 0 0 4px #6957d812}.answer{background:#faf9ff;border:1px solid var(--line);border-radius:18px;padding:19px;line-height:2;display:none;margin-top:14px}.answer.show{display:block}
+.ai-box{border:2px dashed #d9d3f4;border-radius:20px;padding:28px;text-align:center;background:linear-gradient(145deg,#fbfaff,#f7f5ff)}#preview{display:none;max-width:100%;max-height:320px;margin:18px auto;border-radius:16px;box-shadow:0 10px 30px #302d4918}
+footer{text-align:center;color:var(--muted);padding:28px;border-top:1px solid var(--line);background:#fff9}
+@media(max-width:800px){header{padding:0 16px}.logo{font-size:27px}nav button{padding:8px 9px;font-size:12px}.hero,.grid{grid-template-columns:1fr}.hero-main{padding:28px}.hero h1{font-size:35px}.time{font-size:62px}}
+</style>
+
+<style>
+.page{display:none;animation:fade .25s ease}.page.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.page-head{padding:10px 4px 24px}.page-head h1{font-size:38px;margin:12px 0 5px}.page-head p{color:var(--muted);margin:0;line-height:1.8}
+.home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}.feature{text-align:right;border:1px solid var(--line);cursor:pointer;font-family:inherit}.feature span{font-size:32px;display:block;margin-bottom:10px}.feature b{display:block;font-size:18px}.feature small{display:block;color:var(--muted);margin-top:5px;line-height:1.6}
+.ai-card{max-width:850px;margin:auto}.ai-box{margin-bottom:16px}.upload-icon{font-size:48px}.ai-box h2{margin:5px}.ai-box p{color:var(--muted)}.ai-box #imageName{margin-top:10px;color:var(--muted)}
+.big-subjects{grid-template-columns:repeat(3,1fr);max-width:950px;margin:auto}.big-subjects .subject{padding:25px;min-height:150px}.big-subjects .emoji{font-size:38px}
+.timer-card{max-width:720px;margin:auto;text-align:center;padding:45px}.streak-large{max-width:720px;margin:auto;text-align:center;padding:45px}.streak-large .flame{font-size:75px}.streak-large .streak-num{font-size:65px}.streak-large p{color:var(--muted)}.streak-tips{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;text-align:right}.streak-tips div{background:#faf9ff;border:1px solid var(--line);padding:17px;border-radius:16px}.streak-tips b,.streak-tips span{display:block}.streak-tips span{color:var(--muted);font-size:13px;margin-top:5px}
+@media(max-width:800px){.home-grid,.big-subjects,.streak-tips{grid-template-columns:1fr}.page-head h1{font-size:32px}nav{overflow-x:auto;max-width:75%}nav button{white-space:nowrap}.hero{grid-template-columns:1fr}}
+</style>
+
+<style>
+.daily-motivation{margin:18px auto 8px;max-width:520px;padding:15px 18px;border-radius:16px;background:#f5f2ff;color:#5b4bbd;font-weight:800;line-height:1.8}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">فهمورا <span>✦</span></div>
+  <nav>
+    <button class="active" data-page="home">الرئيسية</button>
+    <button data-page="ai">🤖 فهمورا AI</button>
+    <button data-page="subjects">📚 المواد</button>
+    <button data-page="timer">⏱️ المذاكرة</button>
+    <button data-page="streak">🔥 الاستريك</button>
+  </nav>
+</header>
+
+<main>
+<section class="page active" id="page-home">
+  <div class="hero">
+    <div class="card hero-main">
+      <div class="hero-content">
+        <div class="badge">✨ مذاكرة أذكى، مش وقت أطول</div>
+        <h1>أهلاً بيكي في <b>فهمورا</b> 💜</h1>
+        <p>مكان واحد يساعدك تفهمي، تذاكري، وتنظمي وقتك من غير ما تحسي إن كل حاجة فوق بعض.</p>
+        <button class="btn primary" data-go="ai">ابدئي مع الـAI ✨</button>
+        <div class="stats">
+          <div class="stat"><strong id="studyStat">0</strong><small>دقيقة مذاكرة اليوم</small></div>
+          <div class="stat"><strong id="sessionStat">0</strong><small>جلسات مكتملة</small></div>
+          <div class="stat"><strong id="streakStat">0 🔥</strong><small>أيام متتالية</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="card streak">
+      <div class="flame">🔥</div><div class="muted">استريك المذاكرة</div>
+      <div class="streak-num" id="bigStreak">0 يوم</div>
+      <div class="muted">كل يوم خطوة صغيرة بتفرق.</div>
+      <button class="btn" style="background:#fff;color:#6957d8;margin-top:20px" data-go="streak">شوفي تقدمك</button>
+    </div>
+  </div>
+  <div class="home-grid">
+    <button class="feature card" data-go="ai"><span>🤖</span><b>فهمورا AI</b><small>صوري الصفحة وخليه يشرحها بالتفصيل</small></button>
+    <button class="feature card" data-go="subjects"><span>📚</span><b>موادك</b><small>اختاري المادة وابدئي المذاكرة</small></button>
+    <button class="feature card" data-go="timer"><span>⏱️</span><b>مؤقت التركيز</b><small>مذاكرة وراحة بنظام مريح</small></button>
+  </div>
+</section>
+
+<section class="page" id="page-ai">
+  <div class="page-head"><div><span class="badge">🤖 مدرسك الذكي</span><h1>فهمورا AI</h1><p>صوري صفحة من كتابك أو ارفعي سؤال، واطلبي شرحًا طويلًا خطوة بخطوة.</p></div></div>
+  <div class="card ai-card">
+    <div class="ai-box">
+      <input id="pageImage" type="file" accept="image/*" style="display:none">
+      <div class="upload-icon">📸</div><h2>صوري أو ارفعي صفحة</h2>
+      <p>فهمورا يجهز لك الشرح، الحل، والأفكار المهمة.</p>
+      <button class="btn primary" type="button" onclick="document.getElementById('pageImage').click()">اختاري صورة الصفحة</button>
+      <div id="imageName"></div><img id="preview" alt="معاينة الصفحة">
+    </div>
+    <textarea id="aiQuestion" placeholder="مثال: اشرحلي الصفحة دي بالتفصيل وكأني أول مرة أدرسها، وبعدها حل الأسئلة الموجودة فيها."></textarea>
+    <button class="btn primary" id="aiExplain" type="button">✨ اشرحلي بالتفصيل</button>
+    <div id="aiResult" class="answer" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="page" id="page-subjects">
+  <div class="page-head"><span class="badge">📚 مكتبتك</span><h1>المواد الدراسية</h1><p>اختاري المادة اللي عايزة تذاكريها.</p></div>
+  <div class="subjects big-subjects">
+    <div class="subject" onclick="pick('العربي');go('ai')"><span class="emoji">📖</span><h3>العربي</h3><p>نحو • أدب • قراءة</p></div>
+    <div class="subject" onclick="pick('الإنجليزي');go('ai')"><span class="emoji">🇬🇧</span><h3>الإنجليزي</h3><p>Grammar • Vocabulary</p></div>
+    <div class="subject" onclick="pick('الرياضيات');go('ai')"><span class="emoji">📐</span><h3>الرياضيات</h3><p>مسائل خطوة بخطوة</p></div>
+    <div class="subject" onclick="pick('العلوم');go('ai')"><span class="emoji">🧪</span><h3>العلوم</h3><p>افهمي الفكرة أولاً</p></div>
+    <div class="subject" onclick="pick('الفيزياء');go('ai')"><span class="emoji">⚡</span><h3>الفيزياء</h3><p>قوانين + أمثلة</p></div>
+    <div class="subject" onclick="pick('الكيمياء');go('ai')"><span class="emoji">⚗️</span><h3>الكيمياء</h3><p>تفاعلات ببساطة</p></div>
+  </div>
+</section>
+
+<section class="page" id="page-timer">
+  <div class="page-head"><span class="badge">⏱️ ركزي معايا</span><h1>جلسة المذاكرة</h1><p>اختاري وقت المذاكرة ووقت الراحة، وسيبي الباقي على فهمورا.</p></div>
+  <div class="card timer-card">
+    <div class="mode" id="mode">وقت المذاكرة</div>
+    <div class="time" id="time">25:00</div>
+    <div class="progress"><i id="bar"></i></div>
+    <div class="timer-settings">
+      <label>مذاكرة <input id="studyMin" type="number" value="25" min="1"></label>
+      <label>راحة <input id="breakMin" type="number" value="5" min="1"></label>
+    </div>
+    <div class="timer-controls">
+      <button class="btn primary" id="start">ابدئي ▶</button>
+      <button class="btn secondary" id="pause">إيقاف مؤقت</button>
+      <button class="btn secondary" id="reset">إعادة</button>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="page-streak">
+  <div class="page-head"><span class="badge">🔥 حافظي على الاستريك</span><h1>استريك المذاكرة</h1><p>حتى لو 20 دقيقة يوميًا، المهم تكملي.</p></div>
+  <div class="card streak-large">
+    <div class="flame">🔥</div><div class="streak-num" id="bigStreak2">0 يوم</div><p>أيام متتالية</p><div id="dailyMotivation" class="daily-motivation">ابدئي النهارده… وأول يوم هو أصعب خطوة 💜</div><p>أيام متتالية</p>
+    <div class="days" id="days"></div>
+    <div class="streak-tips"><div>🎯 <b>هدفك اليوم</b><span>جلسة مذاكرة واحدة على الأقل</span></div><div>💡 <b>نصيحة</b><span>ابدئي بـ25 دقيقة فقط، وبعدها قرري تكملي ولا لأ.</span></div></div>
+  </div>
+</section>
+</main>
+<footer>فهمورا 💜 — افهمها، ذاكرها، وكمّل استريكك.</footer>
+
+<script>
+const motivations=[
+"ابدئي النهارده… وأول يوم هو أصعب خطوة 💜",
+"برافو! يوم جديد = خطوة جديدة ناحية هدفك ✨",
+"مش لازم تذاكري كتير، المهم تكملي كل يوم 🌷",
+"استريكك بيكبر… وإنتِ كمان بتكبري في مستواكي 🔥",
+"كل دقيقة مذاكرة النهارده هتشكرِك عليها بكرة 💫",
+"كمّلي… أنتِ أقرب مما تتخيلي 🤍",
+"يوم ورا يوم، الحاجة الصعبة هتبقى سهلة 💪",
+"الإنجاز مش إنك ما تتعبيش… الإنجاز إنك تكملي رغم التعب 🌟",
+"افهميها النهارده، عشان بكرة تبقى سهلة عليكِ 🧠💜",
+"أنتِ مش محتاجة تكوني مثالية، محتاجة بس ما توقفيش 🌸",
+"الاستريك ده دليل إنك بتقدري تلتزمي بهدفك 🔥",
+"خطوة صغيرة كل يوم تعمل فرقًا كبيرًا مع الوقت 🚀"
+];
+function updateMotivation(streak){
+  const el=document.getElementById('dailyMotivation');
+  if(!el)return;
+  const index=Math.min(Math.max(Number(streak)||0,0),motivations.length-1);
+  const daySeed=Math.floor(Date.now()/86400000);
+  el.textContent=motivations[(index+daySeed)%motivations.length];
+}
+
+function go(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const target=document.getElementById('page-'+page);
+  if(target)target.classList.add('active');
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('nav button[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+
+let selected='';
+const examples={
+'العربي':'النحو بيتفهم من خلال تحديد وظيفة كل كلمة في الجملة، وبعدها نحدد علامة الإعراب المناسبة. اكتبيلي اسم القاعدة أو الجملة اللي واقفة معاكي.',
+'الإنجليزي':'ابدئي بتحديد زمن الجملة والكلمات الدالة عليه، ثم اختاري شكل الفعل المناسب. اكتبيلي اسم القاعدة أو السؤال اللي مش فاهماه.',
+'الرياضيات':'في الرياضيات بنقسم المسألة لخطوات صغيرة: المعطيات، المطلوب، القانون المناسب، ثم التعويض والحساب. اكتبيلي اسم الدرس.',
+'العلوم':'حاولي تربطي كل معلومة بسبب ونتيجة: ماذا يحدث؟ لماذا يحدث؟ وما الدليل عليه؟ اكتبيلي اسم الدرس.',
+'الفيزياء':'في الفيزياء أهم حاجة نفهم معنى القانون ووحدات الكميات قبل التعويض. اكتبيلي اسم القانون أو المسألة.',
+'الكيمياء':'في الكيمياء اربطي بين تركيب المادة وسلوكها والتفاعل الذي يحدث. اكتبيلي اسم التفاعل أو الدرس.'
+};
+function pick(s){selected=s;document.getElementById('selected').textContent='المادة: '+s;document.getElementById('topic').focus()}
+function explain(){
+ let t=document.getElementById('topic').value.trim(), a=document.getElementById('answer');
+ if(!t){a.innerHTML='اكتبي الموضوع الأول عشان أبدأ الشرح 💜';a.classList.add('show');return}
+ a.innerHTML='<b>تمام! 👀</b><br>هنا هنفهم <b>'+t+'</b> بطريقة بسيطة، مش حفظ وخلاص.<br><br>'+(examples[selected]||'اختاري المادة عشان أقدر أظبط طريقة الشرح على حسبها.')+'<br><br><b>فكرة فهمورا:</b> ابدئي بالفكرة الأساسية، وبعدها مثال، وبعدها جربي تحلي سؤال بنفسك.';
+ a.classList.add('show')
+}
+
+let mode='study', running=false, timer=null, total=1500, remaining=1500;
+const timeEl=document.getElementById('time'), bar=document.getElementById('bar'), modeEl=document.getElementById('mode');
+function setTime(){let m=Math.floor(remaining/60),s=remaining%60;timeEl.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');bar.style.width=((total-remaining)/total*100)+'%'}
+function loadMode(){let mins=+(mode==='study'?document.getElementById('studyMin').value:document.getElementById('breakMin').value);total=remaining=mins*60;modeEl.textContent=mode==='study'?'وقت المذاكرة':'وقت الراحة';setTime()}
+document.getElementById('start').onclick=()=>{if(running)return;running=true;timer=setInterval(()=>{remaining--;setTime();if(remaining<=0){clearInterval(timer);running=false;if(mode==='study'){completeSession();mode='break'}else mode='study';loadMode();alert(mode==='study'?'خلصت الراحة! يلا نرجع نذاكر 💪':'برافو! خلصت جلسة مذاكرة 🎉 حان وقت الراحة.')}},1000)}
+document.getElementById('pause').onclick=()=>{clearInterval(timer);running=false}
+document.getElementById('reset').onclick=()=>{clearInterval(timer);running=false;loadMode()}
+document.getElementById('studyMin').onchange=loadMode;document.getElementById('breakMin').onchange=loadMode;
+
+function getData(){return JSON.parse(localStorage.getItem('fhmora')||'{"sessions":0,"minutes":0,"streak":0,"last":""}')}
+function saveData(d){localStorage.setItem('fhmora',JSON.stringify(d));render()}
+function completeSession(){let d=getData(),today=new Date().toISOString().slice(0,10);d.sessions++;d.minutes+=+(document.getElementById('studyMin').value);if(d.last!==today){let y=new Date();y.setDate(y.getDate()-1);let yd=y.toISOString().slice(0,10);d.streak=d.last===yd?d.streak+1:1;d.last=today}saveData(d)}
+function render(){let d=getData();document.getElementById('studyStat').textContent=d.minutes;document.getElementById('sessionStat').textContent=d.sessions;document.getElementById('streakStat').textContent=d.streak+' 🔥';document.getElementById('bigStreak').textContent=d.streak+' يوم'; document.getElementById('bigStreak2').textContent=d.streak+' يوم'; updateMotivation(d.streak);let days=document.getElementById('days');days.innerHTML='';['س','ح','ن','ث','ر','خ','ج'].forEach((x,i)=>{let z=document.createElement('div');z.className='day '+(i<d.streak?'done':'');z.innerHTML=x+'<div class="dot">'+(i<d.streak?'✓':'')+'</div>';days.appendChild(z)})}
+render();loadMode();
+function showHome(btn){window.scrollTo({top:0,behavior:'smooth'});document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+
+const pageImage=document.getElementById('pageImage');
+const preview=document.getElementById('preview');
+const imageName=document.getElementById('imageName');
+const aiResult=document.getElementById('aiResult');
+pageImage.addEventListener('change',()=>{
+  const file=pageImage.files[0];
+  if(!file)return;
+  imageName.textContent='تم اختيار: '+file.name;
+  const reader=new FileReader();
+  reader.onload=e=>{preview.src=e.target.result;preview.style.display='block'};
+  reader.readAsDataURL(file);
+});
+document.getElementById('aiExplain').addEventListener('click',()=>{
+  const hasImage=pageImage.files.length>0;
+  const q=document.getElementById('aiQuestion').value.trim();
+  aiResult.innerHTML = '<b>فهمورا AI ✨</b><br><br>' +
+    (hasImage ? 'استلمت صورة الصفحة. في النسخة المتصلة بالـAI سيتم تحليل النص والصور والمعادلات الموجودة فيها.' : 'ارفعي صورة الصفحة أولًا للحصول على تحليل بصري لها.') +
+    '<br><br><b>شكل الإجابة:</b><ol style="line-height:2"><li>ملخص الفكرة الأساسية.</li><li>شرح كل جزء بلغة بسيطة.</li><li>حل الأسئلة خطوة بخطوة مع توضيح السبب.</li><li>توضيح القوانين والمصطلحات المهمة.</li><li>أخطاء شائعة لازم تتجنبيها.</li><li>أسئلة قصيرة للتأكد إنك فهمتي.</li></ol>' +
+    (q ? '<b>طلبك:</b> '+q : '');
+  aiResult.classList.add('show');
+});
+
+</script>
+</body>
+</html>
